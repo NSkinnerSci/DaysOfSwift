@@ -105,4 +105,40 @@ let d = Double(a) + b
 var name2 = "Nicolas Cage"
 //name2 = 57
 
+// Day 2 //
+
+// Simple boolean
+let goodDogs = true
+var gameOver = false
+
+// Flipping booleans
+var isAuthenticated = false
+isAuthenticated = !isAuthenticated
+print(isAuthenticated)
+isAuthenticated = !isAuthenticated
+print(isAuthenticated)
+
+// Toggling a boolean
+//var gameOver = false
+gameOver.toggle()
+
+// Joining strings together
+// Using the + operater to join strings
+let people = "Haters"
+let action = "hate"
+let lyric = people + " gonna " + action
+print(lyric)
+
+// "Operator overloading"
+// operator overloading is when an operator, such as "+" can be used for many things
+// e.g. it can add doubles or ints together, as well as combinging strings
+
+// Stirng interpolation
+let name3 = "Taylor"
+let age = 26
+let message = "Hello, my name is \(name3) and I'm \(age) years old."
+print(message)
+// Interpolation is much more efficient thatn the "+" operator for stings
+
+// Simple Data
 

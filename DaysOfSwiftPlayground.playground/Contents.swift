@@ -140,5 +140,116 @@ let message = "Hello, my name is \(name3) and I'm \(age) years old."
 print(message)
 // Interpolation is much more efficient thatn the "+" operator for stings
 
-// Simple Data
+// Simple Data Checkpoint
 
+
+// Day 3 //
+// Simple arrays
+var beatles = ["John", "Paul", "George", "Ringo"]
+let numbers = [4, 8, 15, 16, 23, 42]
+var temperatures = [25.3, 28.2, 26.4]
+
+// Indexing arrays
+print(beatles[0])
+print(numbers[1])
+print(temperatures[2])
+
+// Appending arrays
+beatles.append("Adrian")
+beatles.append("Allen")
+beatles.append("Adrian")
+beatles.append("Novall")
+beatles.append("Vivian")
+
+// You can only append the same data type to arrays
+//temperatures.append("Chris") // doesn't work
+
+// Creating an empty array and appending
+var scores = Array<Int>()
+scores.append(100)
+scores.append(80)
+scores.append(85)
+print(scores[1])
+
+// Create an array with []
+var albums = [String]()
+albums.append("Folklore")
+albums.append("Fearless")
+albums.append("Red")
+
+// function on arrays
+print(albums.count)
+
+// Removing items from an array
+var characters = ["Lana", "Pam", "Ray", "Sterling"]
+print(characters.count)
+
+characters.remove(at: 2)
+print(characters.count)
+
+characters.removeAll()
+print(characters.count)
+
+// Check if an array contains a value
+let bondMovies = ["Casino Royale", "Spectre", "No Time To Die"]
+print(bondMovies.contains("Frozen"))
+
+// Sort arrays
+let cities = ["London", "Tokyo", "Rome", "Budapest"]
+print(cities.sorted())
+
+// or reversed
+let presidents = ["Bush", "Obama", "Trump", "Biden"]
+let reversedPresidents = presidents.reversed()
+print(reversedPresidents)
+
+// Dictionaries
+// Creating a dictionary
+let employee2 = [
+    "name": "Taylor Swift",
+    "job": "Singer",
+    "location": "Nashville"
+]
+
+// Pull data from a dictionary
+print(employee2["name"])
+print(employee2["job"])
+print(employee2["location"])
+
+// Providing default values for a dictionary
+print(employee2["name", default: "Unknown"])
+print(employee2["job", default: "Unknown"])
+print(employee2["location", default: "Unknown"])
+
+// Creat an empty dictionary, and add data later
+var heights = [String: Int]()
+heights["Yao Ming"] = 229
+heights["Shaquille O'Neal"] = 216
+heights["LeBron James"] = 206
+
+// Sets
+// Similar to arrays, except you can’t add duplicate items, and they don’t store their items in a particular order
+let people2 = Set(["Denzel Washington", "Tom Cruise", "Nicolas Cage", "Samuel L Jackson"])
+print(people2)
+
+var people3 = Set<String>()
+people3.insert("Denzel Washington")
+people3.insert("Tom Cruise")
+people3.insert("Nicolas Cage")
+people3.insert("Samuel L Jackson")
+
+// Sets are much faster than arrays when you want to identify if it contains a particular value
+
+// Enumerations
+// Creates a object that can only be a value that has already been specified
+enum Weekday {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+}
+
+var day = Weekday.monday
+day = Weekday.tuesday
+day = Weekday.friday

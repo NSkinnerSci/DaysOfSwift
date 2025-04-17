@@ -253,3 +253,30 @@ enum Weekday {
 var day = Weekday.monday
 day = Weekday.tuesday
 day = Weekday.friday
+
+// Day 4
+// Type annotations
+let surname: String = "Lasso"
+var score2: Int = 0
+
+// Other types
+var user: [String: String] = ["id": "@twostraws"]
+var books: Set<String> = Set(["The Bluest Eye", "Foundation", "Girl, Woman, Other"])
+
+// Values of an enum have the same type as the enum itself, so we could write something like this:
+
+enum UIStyle {
+    case light, dark, system
+}
+
+var style = UIStyle.light
+
+// We can also create an empty constant and assign it later, use the type annotation
+let username: String
+// lots of complex logic
+username = "@twostraws"
+// lots more complex logic
+print(username)
+
+// Checkpoint 2
+

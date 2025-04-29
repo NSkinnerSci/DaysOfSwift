@@ -280,3 +280,147 @@ print(username)
 
 // Checkpoint 2
 
+
+// Day 5
+// IF switch and conditions
+let score3 = 85
+
+if score3 > 80 {
+    print("Great job!")
+}
+
+// Conditions for strings will use alphabetical order
+let ourName = "Dave Lister"
+let friendName = "Arnold Rimmer"
+
+if ourName < friendName {
+    print("It's \(ourName) vs \(friendName)")
+}
+
+if ourName > friendName {
+    print("It's \(friendName) vs \(ourName)")
+}
+
+// More complex condition
+// Make an array of 3 numbers
+var numbers5 = [1, 2, 3]
+
+// Add a 4th
+numbers5.append(4)
+
+// If we have over 3 items
+if numbers5.count > 3 {
+    // Remove the oldest number
+    numbers5.remove(at: 0)
+}
+
+// Display the result
+print(numbers5)
+
+// Is equal to
+let country = "Canada"
+
+if country == "Australia" {
+    print("G'day!")
+}
+
+// is not equal to
+let name4 = "Taylor Swift"
+
+if name4 != "Anonymous" {
+    print("Welcome, \(name4)")
+}
+
+
+// Check if a string is empty
+var username2 = ""
+if username2.isEmpty == true {
+    username2 = "Anonymous"
+}
+
+// Checking multiple conditions
+// And conditions
+var temp = 23
+if temp > 20 && temp < 30 {
+    print("It's a nice day.")
+}
+// Or conditions
+let userAge = 14
+let hasParentalConsent = true
+
+if userAge >= 18 || hasParentalConsent == true {
+    print("You can buy the game")
+}
+
+// How to use switch statements to check multiple conditions
+// Using a switch for cases
+
+enum Weather {
+    case sun, rain, wind, snow, unknown
+}
+let forecast = Weather.sun
+
+switch forecast {
+case .sun:
+    print("It should be a nice day.")
+case .rain:
+    print("Pack an umbrella.")
+case .wind:
+    print("Wear something warm")
+case .snow:
+    print("School is cancelled.")
+case .unknown:
+    print("Our forecast generator is broken!")
+}
+
+// Using a default option for a switch
+let place = "Metropolis"
+
+switch place {
+case "Gotham":
+    print("You're Batman!")
+case "Mega-City One":
+    print("You're Judge Dredd!")
+case "Wakanda":
+    print("You're Black Panther!")
+default:
+    print("Who are you?")
+}
+
+// Use fallthrough if you want swift to check each case, irrespective if it already found a match
+
+switch place {
+case "Gotham":
+    print("You're Batman!")
+    fallthrough
+case "Mega-City One":
+    print("You're Judge Dredd!")
+    fallthrough
+case "Wakanda":
+    print("You're Black Panther!")
+    fallthrough
+default:
+    print("Who are you?")
+}
+
+// The ternary operator
+let ageVote = 18
+let canVote = ageVote >= 18 ? "Yes" : "No"
+
+// a helpful mnemonic: WTF. It stands for “what, true, false”, and matches the order of our code
+
+// Another example
+let hour = 23
+print(hour < 12 ? "It's before noon" : "It's after noon")
+
+// Another example
+enum Theme {
+    case light, dark
+}
+
+let theme = Theme.dark
+
+let background = theme == .dark ? "black" : "white"
+print(background)
+
+// Day 6

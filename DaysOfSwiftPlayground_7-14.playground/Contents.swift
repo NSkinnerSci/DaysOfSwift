@@ -96,4 +96,118 @@ do {
     print("There was an error.")
 }
 
+// Day 9
+// Creating closures
+let sayHello = { (name: String) -> String in //in is used to mark the end of the parameters and return type
+    "Hi \(name)!"
+}
+sayHello("Bob")
+
+// Checkpoint 4
+
+// Day 10
+// Structs!
+
+// A simple struct:
+struct Album {
+    let title: String
+    let artist: String
+    let year: Int
+
+    func printSummary() {
+        print("\(title) (\(year)) by \(artist)")
+    }
+}
+
+// Some struct uses
+let red = Album(title: "Red", artist: "Taylor Swift", year: 2012)
+let wings = Album(title: "Wings", artist: "BTS", year: 2016)
+
+print(red.title)
+print(wings.artist)
+
+red.printSummary()
+wings.printSummary()
+
+// Computing property values of structs
+struct Employee {
+    let name: String
+    var vacationAllocated = 14
+    var vacationTaken = 0
+
+    var vacationRemaining: Int {
+        vacationAllocated - vacationTaken
+    }
+}
+var archer = Employee(name: "Sterling Archer", vacationAllocated: 14)
+archer.vacationTaken += 4
+print(archer.vacationRemaining)
+archer.vacationTaken += 4
+print(archer.vacationRemaining)
+
+// didSet and willSet observers
+struct Game {
+    var score = 0 {
+        didSet { // this will print the new score, everytime the score is changed
+            print("Score is now \(score)")
+        }
+    }
+}
+
+var game = Game()
+game.score += 10
+game.score -= 3
+game.score += 1
+
+// use of willSet as well as oldValue
+struct App {
+    var contacts = [String]() {
+        willSet {
+            print("Current value is: \(contacts)")
+            print("New value will be: \(newValue)")
+        }
+
+        didSet {
+            print("There are now \(contacts.count) contacts.")
+            print("Old value was \(oldValue)")
+        }
+    }
+}
+
+var app = App()
+app.contacts.append("Adrian E")
+app.contacts.append("Allen W")
+app.contacts.append("Ish S")
+
+
+// Adding in initialisers to a STRUCT
+
+struct Player {
+    let name: String
+    let number: Int
+
+    init(name: String) {
+        self.name = name
+        number = Int.random(in: 1...99)
+    }
+}
+
+let player = Player(name: "Megan R")
+print(player.number)
+
+struct Country {
+    var name: String
+    var usesImperialMeasurements: Bool
+    init(countryName: String) {
+        name = countryName
+        let imperialCountries = ["Liberia", "Myanmar", "USA"]
+        if imperialCountries.contains(name) {
+            usesImperialMeasurements = true
+        } else {
+            usesImperialMeasurements = false
+        }
+    }
+}
+
+// Day 11
 

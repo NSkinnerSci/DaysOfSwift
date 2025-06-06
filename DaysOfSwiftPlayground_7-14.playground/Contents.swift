@@ -210,4 +210,55 @@ struct Country {
 }
 
 // Day 11
+// Access Control
+
+// Example struc:
+struct BankAccount {
+    var funds = 0
+
+    mutating func deposit(amount: Int) {
+        funds += amount
+    }
+
+    mutating func withdraw(amount: Int) -> Bool {
+        if funds >= amount {
+            funds -= amount
+            return true
+        } else {
+            return false
+        }
+    }
+}
+// That has methods to deposit and withdraw money from a bank account, and should be used like this:
+
+var account = BankAccount()
+account.deposit(amount: 100)
+let success = account.withdraw(amount: 200)
+
+if success {
+    print("Withdrew money successfully")
+} else {
+    print("Failed to get the money")
+}
+//But the funds property is just exposed to us externally, so what’s stopping us from touching it directly? The answer is nothing at all – this kind of code is allowed:
+
+account.funds -= 1000
+
+// To solve this, we can tell Swift that funds should be accessible only inside the struct – by methods that belong to the struct, as well as any computed properties, property observers, and so on.
+
+// This takes only one extra word:
+
+private var funds = 0
+
+// Use private for “don’t let anything outside the struct use this.”
+// Use fileprivate for “don’t let anything outside the current file use this.”
+// Use public for “let anyone, anywhere use this.”
+
+// private(set) can make something readable, but not writeable
+private(set) var readableNotWriteable = "String"
+
+
+
+
+// Day 12
 

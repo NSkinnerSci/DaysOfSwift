@@ -261,4 +261,121 @@ private(set) var readableNotWriteable = "String"
 
 
 // Day 12
+// Creating your own classes
+class Game2 {
+    var score = 0 {
+        didSet {
+            print("Score is now \(score)")
+        }
+    }
+}
 
+var newGame = Game2()
+newGame.score += 10
+
+// How to make one class inherit from another
+// Use a colon to inherit the following class
+class Employee2 {
+    let hours: Int
+
+    init(hours: Int) {
+        self.hours = hours
+    }
+    func printSummary() {
+        print("I work too hard")
+    }
+}
+class Developer: Employee2 {
+    func work() {
+        print("I'm writing code for \(hours) hours.")
+    }
+}
+
+class Manager: Employee2 {
+    func work() {
+        print("I'm going to meetings for \(hours) hours.")
+    }
+}
+let robert = Developer(hours: 8)
+let joseph = Manager(hours: 10)
+robert.work()
+joseph.work()
+
+// To overide a childs class action, you must use the term "overried"
+class SeniorDveloper: Employee2 {
+    override func printSummary() {
+        print("I'm a who will sometimes work \(hours) hours a day, but other times spend hours arguing about whether code should be indented using tabs or spaces.")
+    }
+}
+// If you know for sure that your class should not support inheritance, you can mark it as final
+
+// How to add initializers for classes
+// If you have a parent class that calls a child class with an initialiser, you need to initialise the childs initialiser in the parent class using "super"
+
+// For child class Vehicle:
+class Vehicle {
+    let isElectric: Bool
+
+    init(isElectric: Bool) {
+        self.isElectric = isElectric
+    }
+}
+// Use super.init in the parent class Car
+class Car: Vehicle {
+    let isConvertible: Bool
+
+    init(isElectric: Bool, isConvertible: Bool) {
+        self.isConvertible = isConvertible
+        super.init(isElectric: isElectric)
+    }
+}
+
+// The, when we make our object, we can call the object like this:
+let teslaX = Car(isElectric: true, isConvertible: false)
+
+// How to copy classes
+//In Swift, all copies of a class instance share the same data, meaning that any changes you make to one copy will automatically change the other copies. This happens because classes are reference types in Swift, which means all copies of a class all refer back to the same underlying pot of data.
+class User {
+    var username = "Anonymous"
+}
+// Make an instance of the class
+var user1 = User()
+print(user1.username)
+// Copy the class
+var user3 = user1
+// Change a property of the copied class
+user3.username = "Taylor"
+// Get the result from both
+print(user1.username)
+print(user3.username)
+
+// How to create a deinitializer for classes
+// Requirments:
+// Just like initializers, you don’t use func with deinitializers – they are special.
+// Deinitializers can never take parameters or return data, and as a result aren’t even written with parentheses.
+// Your deinitializer will automatically be called when the final copy of a class instance is destroyed. That might mean it was created inside a function that is now finishing, for example.
+// We never call deinitializers directly; they are handled automatically by the system.
+// Structs don’t have deinitializers, because you can’t copy them.
+
+class UserDeinit {
+    let id: Int
+
+    init(id: Int) {
+        self.id = id
+        print("User \(id): I'm alive!")
+    }
+
+    deinit {
+        print("User \(id): I'm dead!")
+    }
+}
+
+// Now create an instance of the class in a loop, where the class will be destroyed when the loop is exited
+for i in 1...3 {
+    let user = UserDeinit(id: i)
+    print("User \(user.id): I'm in control!")
+}
+
+// How to work with variables inside classes
+
+// Summary: Classes
